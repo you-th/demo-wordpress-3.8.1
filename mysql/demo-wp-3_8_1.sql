@@ -1,3 +1,8 @@
+
+CREATE DATABASE  IF NOT EXISTS `demo-wp-3.8.1` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `demo-wp-3.8.1`;
+
+
 -- phpMyAdmin SQL Dump
 -- version 4.1.6
 -- http://www.phpmyadmin.net
