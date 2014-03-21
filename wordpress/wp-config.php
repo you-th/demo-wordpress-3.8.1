@@ -89,6 +89,8 @@ define('PATH_CURRENT_SITE', '/');
 define('SITE_ID_CURRENT_SITE', 1);
 define('BLOG_ID_CURRENT_SITE', 1);
 
+/* Theme Mosocolumn as delault theme*/
+define('WP_DEFAULT_THEME', 'MesoColumn');
 
 /* That's all, stop editing! Happy blogging. */
 
