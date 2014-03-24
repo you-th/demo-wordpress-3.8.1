@@ -1,0 +1,59 @@
+Install XAMPP http://www.apachefriends.org/index.html
+Install Wordpress http://wordpress.org (Download WP 3.8.1)
+Clone Git repository "git clone https://github.com/you-th/demo-wordpress-3.8.1"
+	-E.g. C:\Program Files\XAMPP\htdocs\wordpress-3.8.1\wordpress
+		-> Set this as DOCUMENTROOT in httpd.conf
+
+Login to Github using "you-th" accout (un. you-th/pw. *imen*********)
+	Set yourself as a collaborator:
+	https://github.com/you-th/demo-wordpress-3.8.1/settings/collaboration
+
+Check this link for using WP multisite feature:  	
+	http://codex.wordpress.org/Create_A_Network
+
+Set hidden file htaccess as below:
+		# BEGIN WordPress
+		<IfModule mod_rewrite.c>
+		RewriteEngine On
+		RewriteBase /
+		RewriteRule ^index\.php$ - [L]
+
+		# add a trailing slash to /wp-admin
+		RewriteRule ^wp-admin$ wp-admin/ [R=301,L]
+
+		RewriteCond %{REQUEST_FILENAME} -f [OR]
+		RewriteCond %{REQUEST_FILENAME} -d
+		RewriteRule ^ - [L]
+		RewriteRule ^(wp-(content|admin|includes).*) $1 [L]
+		RewriteRule ^(.*\.php)$ $1 [L]
+		RewriteRule . index.php [L]
+		</IfModule>
+		# END WordPress
+   
+Add localhosts into HOSTS file used by Microsoft TCP/IP 
+	C:\Windows\System32\drivers\etc\hosts.html
+		e.g. 	127.0.0.1       kaakkurinkiekko.youthhr.com
+			127.0.0.1       youth.com 
+
+Set wp-config.php 
+-DB_NAME, DB_USER, DB_PASSWORD, DB_HOST (localhost)
+-At http://localhost/phpmyadmin/ and previously defined user
+
+Stop Apache from XAMPP control panel. Update Apache HTTP server configuration file (httpd.com):
+	ServerRoot "C:/Program Files/XAMPP/apache"
+	Set Apache document root Wordpress root!:
+	DocumentRoot "C:/Program Files/XAMPP/htdocs/demo-wordpress-3.8.1/wordpress"
+	<Directory "C:/Program Files/XAMPP/htdocs">
+	Check Apache httpd.com "ServerName localhost:80"
+Start Apache and from XAMPP control panel.
+
+Stop MySQL from XAMPP control panel.
+Open phpmyadmin by entering <site url>/phpmyadmin
+	Select Users->Add user
+	-User name: give some, Host 'Local' from list, Password: give some
+	-Global priviledges, check all.
+
+Edit DOCUMENTROOT\wp-config.php 
+-Define as defined in phpMyAdmin: DB_NAME, DB_USER, DB_PASSWORD, DB_HOST (localhost)
+Open your site localhost(/<site name>)
+Start MySQL
