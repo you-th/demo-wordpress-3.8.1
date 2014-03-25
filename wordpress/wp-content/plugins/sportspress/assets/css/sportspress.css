@@ -1,0 +1,112 @@
+/* SportsPress */
+
+/* Data Tables */
+.sp-data-table thead .sorting,
+.sp-data-table thead .sorting_asc,
+.sp-data-table thead .sorting_desc,
+.sp-data-table thead .sorting_asc_disabled,
+.sp-data-table thead .sorting_desc_disabled {
+	cursor: pointer;
+}
+.sp-data-table .sorting:after,
+.sp-data-table .sorting_asc:after,
+.sp-data-table .sorting_desc:after {
+	font-family: dashicons;
+}
+.sp-data-table .sorting:after {
+	content: "\f156";
+	color: transparent;
+	position: absolute;
+}
+.sp-data-table .sorting_asc:after {
+	content: "\f142";
+	position: absolute;
+}
+.sp-data-table .sorting_desc:after {
+	content: "\f140";
+	position: absolute;
+}
+.sp-data-table .team-logo {
+	vertical-align: middle;
+	height: 2.5em;
+	width: auto;
+}
+
+/* Events Calendar */
+.sp-events-calendar tbody td, .sp-events-calendar thead th {
+	text-align: center;
+}
+.sp-events-calendar #next {
+	text-align: right;
+}
+.sp-events-calendar #prev {
+	text-align: left;
+}
+/* Events List */
+.sp-events-list .column-article {
+	white-space: nowrap;
+}
+.sp-events-list .column-article a .dashicons {
+	padding-right: 3px;
+	text-decoration: none;
+}
+
+/* Google Maps */
+.sp-google-map {
+	height: 320px;
+	margin-bottom: 32px;
+}
+
+@media only screen and (max-width: 40em) {
+	.sp-responsive-table {
+		margin-bottom: 0;
+	}
+
+	.sp-pinned-table {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 50%;
+		overflow: hidden;
+		overflow-x: scroll;
+		box-shadow: 0 0 1em rgba(0,0,0,0.5);
+	}
+	.sp-pinned-table table {
+		border-right: none;
+		border-left: none;
+		width: 100%;
+	}
+	.sp-pinned-table table th,
+	.sp-pinned-table table td {
+		white-space: nowrap;
+	}
+	.sp-pinned-table td:last-child {
+		border-bottom: 0;
+	}
+	
+	.sp-responsive-table-wrapper {
+		position: relative;
+		overflow: hidden;
+		background: #fff;
+	}
+	.sp-responsive-table-wrapper .scrollable {
+		margin-left: 50%;
+	}
+	.sp-responsive-table-wrapper .scrollable {
+		overflow: scroll;
+		overflow-y: hidden;
+	}	
+	
+	.sp-responsive-table td,
+	.sp-responsive-table th {
+		position: relative;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+	.sp-responsive-table .data-number,
+	.sp-responsive-table .data-name,
+	.sp-responsive-table .data-rank,
+	.sp-responsive-.sp-pinned-table td {
+		display: none;
+	}
+}
