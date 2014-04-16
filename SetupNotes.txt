@@ -8,33 +8,12 @@ Login to Github using "you-th" accout (un. you-th/pw. *imen*********)
 	Set yourself as a collaborator:
 	https://github.com/you-th/demo-wordpress-3.8.1/settings/collaboration
 
-Check this link for using WP multisite feature:  	
-	http://codex.wordpress.org/Create_A_Network
 
-Set hidden file htaccess as below:
-		# BEGIN WordPress
-		<IfModule mod_rewrite.c>
-		RewriteEngine On
-		RewriteBase /
-		RewriteRule ^index\.php$ - [L]
-
-		# add a trailing slash to /wp-admin
-		RewriteRule ^wp-admin$ wp-admin/ [R=301,L]
-
-		RewriteCond %{REQUEST_FILENAME} -f [OR]
-		RewriteCond %{REQUEST_FILENAME} -d
-		RewriteRule ^ - [L]
-		RewriteRule ^(wp-(content|admin|includes).*) $1 [L]
-		RewriteRule ^(.*\.php)$ $1 [L]
-		RewriteRule . index.php [L]
-		</IfModule>
-		# END WordPress
-   
 Add localhosts into HOSTS file used by Microsoft TCP/IP 
 	C:\Windows\System32\drivers\etc\hosts.html
 		e.g. 	127.0.0.1       kaakkurinkiekko.youthhr.com
 			127.0.0.1       youth.com 
-
+   
 Set wp-config.php 
 -DB_NAME, DB_USER, DB_PASSWORD, DB_HOST (localhost)
 -At http://localhost/phpmyadmin/ and previously defined user
@@ -57,3 +36,39 @@ Edit DOCUMENTROOT\wp-config.php
 -Define as defined in phpMyAdmin: DB_NAME, DB_USER, DB_PASSWORD, DB_HOST (localhost)
 Open your site localhost(/<site name>)
 Start MySQL
+
+Check this link for using WP multisite feature:  	
+	http://codex.wordpress.org/Create_A_Network
+
+Enter 'localhost' in browser and enter requested data.
+
+Add below into wp-config.php:
+	define( 'WP_ALLOW_MULTISITE', true );
+
+Enable multisite at WP Dashboard. Add below into wp-config.php:
+		define('MULTISITE', true);
+		define('SUBDOMAIN_INSTALL', false);
+		define('DOMAIN_CURRENT_SITE', 'localhost');
+		define('PATH_CURRENT_SITE', '/');
+		define('SITE_ID_CURRENT_SITE', 1);
+		define('BLOG_ID_CURRENT_SITE', 1);
+
+
+Set hidden file htaccess as below:
+		# BEGIN WordPress
+		<IfModule mod_rewrite.c>
+		RewriteEngine On
+		RewriteBase /
+		RewriteRule ^index\.php$ - [L]
+
+		# add a trailing slash to /wp-admin
+		RewriteRule ^wp-admin$ wp-admin/ [R=301,L]
+
+		RewriteCond %{REQUEST_FILENAME} -f [OR]
+		RewriteCond %{REQUEST_FILENAME} -d
+		RewriteRule ^ - [L]
+		RewriteRule ^(wp-(content|admin|includes).*) $1 [L]
+		RewriteRule ^(.*\.php)$ $1 [L]
+		RewriteRule . index.php [L]
+		</IfModule>
+		# END WordPress
