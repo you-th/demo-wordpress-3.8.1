@@ -13,6 +13,7 @@ Add localhosts into HOSTS file used by Microsoft TCP/IP
 	C:\Windows\System32\drivers\etc\hosts.html
 		e.g. 	127.0.0.1       kaakkurinkiekko.youthhr.com
 			127.0.0.1       youth.com 
+			127.0.0.1       rotuaarinpallo (covers team sites e.g. rotuaarinpallo/ajuniorit)
    
 Set wp-config.php 
 -DB_NAME, DB_USER, DB_PASSWORD, DB_HOST (localhost)
@@ -40,12 +41,19 @@ Start MySQL
 Check this link for using WP multisite feature:  	
 	http://codex.wordpress.org/Create_A_Network
 
+Remove old database using phpMyAdmin (tietokannat->select->tuhoa)
+Add new database. Use database access info when installing wordpress.
+
 Enter 'localhost' in browser and enter requested data.
+
+Install 'Multisite Enhancement'-plugin (WP 3.9 onwards). 
+Note that any plugin must not be activated when taking multisite into use!
 
 Add below into wp-config.php:
 	define( 'WP_ALLOW_MULTISITE', true );
 
-Enable multisite at WP Dashboard. Add below into wp-config.php:
+Enable multisite at WP Dashboard. 
+Add below into wp-config.php as adviced:
 		define('MULTISITE', true);
 		define('SUBDOMAIN_INSTALL', false);
 		define('DOMAIN_CURRENT_SITE', 'localhost');
@@ -54,7 +62,7 @@ Enable multisite at WP Dashboard. Add below into wp-config.php:
 		define('BLOG_ID_CURRENT_SITE', 1);
 
 
-Set hidden file htaccess as below:
+Set hidden file htaccess as adviced:
 		# BEGIN WordPress
 		<IfModule mod_rewrite.c>
 		RewriteEngine On
@@ -72,3 +80,5 @@ Set hidden file htaccess as below:
 		RewriteRule . index.php [L]
 		</IfModule>
 		# END WordPress
+
+Log out. Log in. Activate 'Multisite Enhancement'-plugin.
