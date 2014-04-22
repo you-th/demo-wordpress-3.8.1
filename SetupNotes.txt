@@ -41,10 +41,12 @@ Start MySQL
 Check this link for using WP multisite feature:  	
 	http://codex.wordpress.org/Create_A_Network
 
-Remove old database using phpMyAdmin (tietokannat->select->tuhoa)
-Add new database. Use database access info when installing wordpress.
+Remove old database using phpMyAdmin (tietokannat->select->tuhoa).
+Remove configuration file 'wp-config.php'.
+Add new database using phpMyAdmin. 
 
-Enter 'localhost' in browser and enter requested data.
+Enter 'localhost' in browser and start Wordpress installation.
+Use new database access parameters (db name, user name, password) when installing Wordpress.
 
 Install 'Multisite Enhancement'-plugin (WP 3.9 onwards). 
 Note that any plugin must not be activated when taking multisite into use!
@@ -52,8 +54,11 @@ Note that any plugin must not be activated when taking multisite into use!
 Add below into wp-config.php:
 	define( 'WP_ALLOW_MULTISITE', true );
 
+Log out-> Log in
+Tools->Network setup
+
 Enable multisite at WP Dashboard. 
-Add below into wp-config.php as adviced:
+Add below into wp-config.php, as adviced:
 		define('MULTISITE', true);
 		define('SUBDOMAIN_INSTALL', false);
 		define('DOMAIN_CURRENT_SITE', 'localhost');
@@ -62,7 +67,8 @@ Add below into wp-config.php as adviced:
 		define('BLOG_ID_CURRENT_SITE', 1);
 
 
-Set hidden file htaccess as adviced:
+Add the following into hidden .htaccess file in C:/Program Files/XAMPP/htdocs/demo-wordpress-3.x/wordpress/, 
+replacing other WordPress rules. As adviced:
 		# BEGIN WordPress
 		<IfModule mod_rewrite.c>
 		RewriteEngine On
