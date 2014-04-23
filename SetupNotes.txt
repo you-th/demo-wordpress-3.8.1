@@ -52,6 +52,8 @@ Install 'Multisite Enhancement'-plugin (WP 3.9 onwards).
 These are recommended to be installed before multisite setup: 
 	BuddyPress 2.0
 	BuddyPress Wall 0.9.3
+	BuddyPress Group Email Subscription 3.4
+	BuddyPress Group Reservation 1.2
 	Events Manager 5.5.2
 	Events Manager ESS 0.983
 	SportsPress 0.7.4
@@ -66,6 +68,7 @@ Log out-> Log in
 Tools->Network setup
 
 Enable multisite at WP Dashboard. 
+
 Add below into wp-config.php, as adviced:
 		define('MULTISITE', true);
 		define('SUBDOMAIN_INSTALL', false);
@@ -96,3 +99,5 @@ replacing other WordPress rules. As adviced:
 		# END WordPress
 
 Log out. Log in. Activate 'Multisite Enhancement'-plugin.
+Hox! You have to select Update->Upgrade network after plugin installation/uninstallation,
+settings change, user/site change etc. for getting those effective in all sites.
